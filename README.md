@@ -8,7 +8,7 @@ Este trabalho tem por objetivo a criação de um sistema distribuído de automa�
 Para acessar o repositório template para o trabalho apresentado, clique [aqui](https://gitlab.com/fse_fga/trabalhos-2021_2/trabalho-2-2021-2). 
 
 ## Observações
-
+Cálculo do total de pessoas presente no piso referenciado não está sendo realizado da maneira correta, retornando 0.
 ## Funcionamento
 ### Controle
 * Monitoramento Térreo 
