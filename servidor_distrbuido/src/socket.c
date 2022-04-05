@@ -13,7 +13,7 @@
 #include "cJSON.h"
 #include "gpio.h"
 #include "dht22.h"
-#include "message_formater.h"
+#include "formatador.h"
 
 #define IP "192.168.0.53"
 #define PORTA 10137
@@ -58,13 +58,13 @@ void receberRequisicao(){
 void enviarDados(){
     if (strlen(mensagem) > 0 && !toggle_value){
         char *final = malloc(MAX_SIZE);
-        Server *server_config = malloc(sizeof(Server));
-        parse_json_string(mensagem, server_config);
+        Servidor *config_servidor = malloc(sizeof(Servidor));
+        stringJson(mensagem, config_servidor);
         read_dht_data(&temperatura, &humidade, 0);
-        final_json(&final, server_config, temperatura, humidade, &pessoas);
+        jsonFinal(&final, config_servidor, temperatura, humidade, &pessoas);
         send(cliente_socket, final, MAX_SIZE, 0);
         free(final);
-        free(server_config);
+        free(config_servidor);
     }
     sleep(1);
 }
